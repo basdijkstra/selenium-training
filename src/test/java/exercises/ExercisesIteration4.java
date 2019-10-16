@@ -18,19 +18,13 @@ public class ExercisesIteration4 {
      * 3. Create an @After method where you close the browser using the quit() method
      */
 
-    private WebDriver driver;
-
-    @Before
-    public void createBrowser() {
+    @Test
+    public void parabankTest() {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-    }
-
-    @Test
-    public void parabankTest() {
 
         driver.get("http://parabank.parasoft.com");
 
@@ -45,10 +39,6 @@ public class ExercisesIteration4 {
         WebElement accountsOverviewHeader = driver.findElement(By.xpath("//h1[@class='title']"));
 
         Assert.assertTrue(accountsOverviewHeader.isDisplayed());
-    }
-
-    @After
-    public void closeBrowser() {
 
         driver.quit();
     }

@@ -15,6 +15,7 @@ public class ExamplesSeleniumHelpers {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by));
+
             driver.findElement(by).click();
         }
         catch (TimeoutException te) {

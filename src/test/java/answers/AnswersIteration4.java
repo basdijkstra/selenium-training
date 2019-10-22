@@ -29,7 +29,7 @@ public class AnswersIteration4 {
 
         driver.findElement(By.name("username")).sendKeys("john");
         driver.findElement(By.name("password")).sendKeys("demo");
-        driver.findElement(By.xpath("//input[@value='Log In'")).click();
+        driver.findElement(By.xpath("//input[@value='Log In']")).click();
 
         String currentTitle = driver.getTitle();
 

@@ -29,7 +29,7 @@ public class ExercisesIteration5 {
 
         driver.findElement(By.name("username")).sendKeys("john");
         driver.findElement(By.name("password")).sendKeys("demo");
-        driver.findElement(By.xpath("//input[@value='Log In'")).click();
+        driver.findElement(By.xpath("//input[@value='Log In']")).click();
 
         /***
          * 1. Continue the test by clicking the link with text 'Request Loan'

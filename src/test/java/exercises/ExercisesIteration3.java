@@ -21,7 +21,7 @@ public class ExercisesIteration3 {
 
         driver.findElement(By.name("username")).sendKeys("john");
         driver.findElement(By.name("password")).sendKeys("demo");
-        driver.findElement(By.xpath("//input[@value='Log In'")).click();
+        driver.findElement(By.xpath("//input[@value='Log In']")).click();
 
         /***
          * 1. Retrieve the current page title as displayed in the active tab and store it in a String variable

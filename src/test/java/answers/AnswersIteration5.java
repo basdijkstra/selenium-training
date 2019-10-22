@@ -30,7 +30,7 @@ public class AnswersIteration5 {
 
         driver.findElement(By.name("username")).sendKeys("john");
         driver.findElement(By.name("password")).sendKeys("demo");
-        driver.findElement(By.xpath("//input[@value='Log In'")).click();
+        driver.findElement(By.xpath("//input[@value='Log In']")).click();
 
         driver.findElement(By.linkText("Request Loan")).click();
         driver.findElement(By.id("amount")).sendKeys("1000");

@@ -16,13 +16,13 @@ public class ExercisesIteration8 {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        new LoginPage(driver).
+                loadAndLoginAs("john","demo");
     }
 
     @Test
     public void parabankTest() {
-
-        new LoginPage(driver).
-            loadAndLoginAs("john","demo");
 
         /***
          * Make sure that you can still select a menu item

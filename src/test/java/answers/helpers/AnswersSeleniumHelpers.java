@@ -1,6 +1,7 @@
 package answers.helpers;
 
 import org.junit.Assert;
+import org.junit.rules.ExpectedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -42,7 +43,19 @@ public class AnswersSeleniumHelpers {
             new Select(driver.findElement(by)).selectByVisibleText(valueToSelect);
         }
         catch (TimeoutException te) {
-            Assert.fail(String.format("Exception in select(): %s", te.getMessage()));
+            Assert.fail(String.format("Exception in select(): %s", by.toString()));
+        }
+    }
+
+    public void selectWithWait(WebDriver driver, By by, String valueToSelect) {
+
+        try {
+            new WebDriverWait(driver, 10).
+                    until(ExpectedConditions.presenceOfNestedElementLocatedBy(by, By.xpath("//option[text()='"+ valueToSelect +"']")));
+            new Select(driver.findElement(by)).selectByVisibleText(valueToSelect);
+        }
+        catch (TimeoutException te) {
+            Assert.fail(String.format("Exception in selectWithWait(): %s", te.getMessage()));
         }
     }
 

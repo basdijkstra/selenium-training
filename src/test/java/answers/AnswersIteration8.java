@@ -16,13 +16,13 @@ public class AnswersIteration8 {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        new LoginPage(driver).
+            loadAndLoginAs("john","demo");
     }
 
     @Test
     public void parabankTest() {
-
-        new LoginPage(driver).
-            loadAndLoginAs("john","demo");
 
         new AccountsOverviewPage(driver).
             selectMenuItem("Request Loan");
@@ -31,12 +31,12 @@ public class AnswersIteration8 {
             submitLoanRequest("1000","100","54321");
 
         Assert.assertEquals(
-            "Denied",
+            "Approved",
             new RequestLoanResultPage(driver).getLoanApplicationResult()
         );
 
         new RequestLoanResultPage(driver).
-            selectMenuItem("Log Out");
+                selectMenuItem("Log Out");
     }
 
     @After

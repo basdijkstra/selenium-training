@@ -18,7 +18,7 @@ public class LoginPage {
     }
 
     public LoginPage load() {
-        driver.get("http://parabank.parasoft.com");
+        driver.get("http://parabank.parasoft.com/parabank");
         return this;
     }
 

@@ -52,7 +52,8 @@ public class ExamplesIteration5 {
 
     @After
     public void closeBrowser() {
-
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

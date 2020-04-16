@@ -1,15 +1,8 @@
 package answers;
 
 import answers.helpers.AnswersSeleniumHelpers;
-import answers.pages.AccountsOverviewPage;
-import answers.pages.LoginPage;
-import answers.pages.RequestLoanPage;
-import answers.pages.RequestLoanResultPage;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import answers.pages.*;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -28,7 +21,7 @@ public class AnswersIteration7 {
     }
 
     @Test
-    public void parabankTest() {
+    public void requestLoan_outsideLimits_shouldBeDenied() {
 
         new LoginPage(driver).
             loadAndLoginAs("john","demo");
@@ -37,7 +30,7 @@ public class AnswersIteration7 {
             selectMenuItem("Request Loan");
 
         new RequestLoanPage(driver).
-            submitLoanRequest("1000","100","54321");
+            submitLoanRequest("10000","10","54321");
 
         Assert.assertEquals(
             "Denied",

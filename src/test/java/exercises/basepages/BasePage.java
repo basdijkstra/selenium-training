@@ -4,7 +4,7 @@ import answers.helpers.AnswersSeleniumHelpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class BasePage {
+public abstract class BasePage {
 
     private WebDriver driver;
     private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();

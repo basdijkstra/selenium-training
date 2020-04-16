@@ -4,7 +4,7 @@ import examples.helpers.ExamplesSeleniumHelpers;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
-public class GoogleBasePage {
+public abstract class GoogleBasePage {
 
     private WebDriver driver;
     private ExamplesSeleniumHelpers selenium = new ExamplesSeleniumHelpers();

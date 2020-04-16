@@ -3,7 +3,7 @@ package answers.basepages;
 import answers.helpers.AnswersSeleniumHelpers;
 import org.openqa.selenium.*;
 
-public class BasePage {
+public abstract class BasePage {
 
     private WebDriver driver;
     private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();

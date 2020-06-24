@@ -11,13 +11,14 @@ import org.openqa.selenium.WebDriver;
 public class AccountsOverviewPage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     public AccountsOverviewPage(WebDriver driver) {
         /***
          * Pass the WebDriver object to the constructor of the BasePage here
          */
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     /***
@@ -25,6 +26,6 @@ public class AccountsOverviewPage {
      */
 
     public void selectMenuItem(String menuItem) {
-        selenium.click(driver, By.linkText(menuItem));
+        selenium.click(By.linkText(menuItem));
     }
 }

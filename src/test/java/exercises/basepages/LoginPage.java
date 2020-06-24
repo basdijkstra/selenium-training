@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     private By textfieldUsername = By.name("username");
     private By textfieldPassword = By.name("password");
@@ -15,6 +15,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     public LoginPage load() {
@@ -23,17 +24,17 @@ public class LoginPage {
     }
 
     public LoginPage enterUsername(String username) {
-        selenium.sendKeys(driver, textfieldUsername, username);
+        selenium.sendKeys(textfieldUsername, username);
         return this;
     }
 
     public LoginPage enterPassword(String password) {
-        selenium.sendKeys(driver, textfieldPassword, password);
+        selenium.sendKeys(textfieldPassword, password);
         return this;
     }
 
     public void doLogin() {
-        selenium.click(driver, buttonDoLogin);
+        selenium.click(buttonDoLogin);
     }
 
     public void loadAndLoginAs(String username, String password) {

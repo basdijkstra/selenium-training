@@ -1,10 +1,7 @@
 package answers;
 
 import answers.helpers.AnswersSeleniumHelpers;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AnswersIteration6 {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     @Before
     public void createBrowser() {
@@ -21,6 +18,8 @@ public class AnswersIteration6 {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     @Test
@@ -28,17 +27,17 @@ public class AnswersIteration6 {
 
         driver.get("http://parabank.parasoft.com");
 
-        selenium.sendKeys(driver, By.name("username"), "john");
-        selenium.sendKeys(driver, By.name("password"), "demo");
-        selenium.click(driver, By.xpath("//input[@value='Log In']"));
+        selenium.sendKeys(By.name("username"), "john");
+        selenium.sendKeys(By.name("password"), "demo");
+        selenium.click(By.xpath("//input[@value='Log In']"));
 
-        selenium.click(driver, By.linkText("Request Loan"));
-        selenium.sendKeys(driver, By.id("amount"), "1000");
-        selenium.sendKeys(driver, By.id("downPayment"), "100");
-        selenium.select(driver, By.id("fromAccountId"), "54321");
-        selenium.click(driver, By.xpath("//input[@value='Apply Now']"));
+        selenium.click(By.linkText("Request Loan"));
+        selenium.sendKeys(By.id("amount"), "1000");
+        selenium.sendKeys(By.id("downPayment"), "100");
+        selenium.select(By.id("fromAccountId"), "54321");
+        selenium.click(By.xpath("//input[@value='Apply Now']"));
 
-        Assert.assertEquals("Denied", selenium.getElementText(driver, By.id("loanStatus")));
+        Assert.assertEquals("Denied", selenium.getElementText(By.id("loanStatus")));
     }
 
     @After

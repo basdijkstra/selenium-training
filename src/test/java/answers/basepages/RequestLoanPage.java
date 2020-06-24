@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class RequestLoanPage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     private By textfieldLoanAmount = By.id("amount");
     private By textfieldDownPayment = By.id("downPayment");
@@ -16,25 +16,26 @@ public class RequestLoanPage {
 
     public RequestLoanPage(WebDriver driver) {
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     public RequestLoanPage enterLoanAmount(String loanAmount) {
-        selenium.sendKeys(driver, textfieldLoanAmount, loanAmount);
+        selenium.sendKeys(textfieldLoanAmount, loanAmount);
         return this;
     }
 
     public RequestLoanPage enterDownPayment(String downPayment) {
-        selenium.sendKeys(driver, textfieldDownPayment, downPayment);
+        selenium.sendKeys(textfieldDownPayment, downPayment);
         return this;
     }
 
     public RequestLoanPage selectFromAccountId(String fromAccountId) {
-        selenium.select(driver, dropdownFromAccountId, fromAccountId);
+        selenium.select(dropdownFromAccountId, fromAccountId);
         return this;
     }
 
     public void doApplyNow() {
-        selenium.click(driver, buttonApplyForLoan);
+        selenium.click(buttonApplyForLoan);
     }
 
     public void submitLoanRequest(String loanAmount, String downPayment, String fromAccountId) {

@@ -6,13 +6,14 @@ import org.openqa.selenium.*;
 public abstract class BasePage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     public void selectMenuItem(String linkText) {
-        selenium.click(driver, By.linkText(linkText));
+        selenium.click(By.linkText(linkText));
     }
 }

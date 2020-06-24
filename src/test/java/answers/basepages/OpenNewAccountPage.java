@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class OpenNewAccountPage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     private By dropdownAccountType = By.id("type");
     private By dropdownFromAccountId = By.id("fromAccountId");
@@ -15,12 +15,13 @@ public class OpenNewAccountPage {
 
     public OpenNewAccountPage(WebDriver driver) {
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     public void openNewAccount(String accountType, String fromAccountId) {
 
-        selenium.select(driver, dropdownAccountType, accountType);
-        selenium.selectWithWait(driver, dropdownFromAccountId, fromAccountId);
-        selenium.click(driver, buttonOpenNewAccount);
+        selenium.select(dropdownAccountType, accountType);
+        selenium.selectWithWait(dropdownFromAccountId, fromAccountId);
+        selenium.click(buttonOpenNewAccount);
     }
 }

@@ -1,7 +1,6 @@
 package answers.helpers;
 
 import org.junit.Assert;
-import org.junit.rules.ExpectedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AnswersSeleniumHelpers {
 
-    public AnswersSeleniumHelpers() {
+    private WebDriver driver;
+
+    public AnswersSeleniumHelpers(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public void click(WebDriver driver, By by) {
+    public void click(By by) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by));
@@ -25,7 +27,7 @@ public class AnswersSeleniumHelpers {
         }
     }
 
-    public void sendKeys(WebDriver driver, By by, String textToType) {
+    public void sendKeys(By by, String textToType) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by));
@@ -36,7 +38,7 @@ public class AnswersSeleniumHelpers {
         }
     }
 
-    public void select(WebDriver driver, By by, String valueToSelect) {
+    public void select(By by, String valueToSelect) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by));
@@ -47,7 +49,7 @@ public class AnswersSeleniumHelpers {
         }
     }
 
-    public void selectWithWait(WebDriver driver, By by, String valueToSelect) {
+    public void selectWithWait(By by, String valueToSelect) {
 
         try {
             new WebDriverWait(driver, 10).
@@ -59,7 +61,7 @@ public class AnswersSeleniumHelpers {
         }
     }
 
-    public boolean isDisplayed(WebDriver driver, By by) {
+    public boolean isDisplayed(By by) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -70,7 +72,7 @@ public class AnswersSeleniumHelpers {
         }
     }
 
-    public String getElementText(WebDriver driver, By by) {
+    public String getElementText(By by) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));

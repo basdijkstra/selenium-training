@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ExamplesIteration6 {
 
     private WebDriver driver;
-    private ExamplesSeleniumHelpers helpers = new ExamplesSeleniumHelpers();
+    private ExamplesSeleniumHelpers selenium;
 
     @Before
     public void createBrowser() {
@@ -21,6 +21,8 @@ public class ExamplesIteration6 {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        selenium = new ExamplesSeleniumHelpers(driver);
     }
 
     @Test
@@ -28,10 +30,10 @@ public class ExamplesIteration6 {
 
         driver.get("https://www.google.com");
 
-        helpers.sendKeys(driver, By.name("q"), "Belastingdienst");
-        helpers.click(driver, By.name("btnK"));
+        selenium.sendKeys(By.name("q"), "Belastingdienst");
+        selenium.click(By.name("btnK"));
 
-        Assert.assertTrue(helpers.isDisplayed(driver, By.id("resultStats")));
+        Assert.assertTrue(selenium.isDisplayed(By.id("resultStats")));
     }
 
     @Test
@@ -39,7 +41,7 @@ public class ExamplesIteration6 {
 
         driver.get("https://html.com/tags/select/");
 
-        helpers.select(driver, By.xpath("(//select)[1]"), "Chilean Flamingo");
+        selenium.select(By.xpath("(//select)[1]"), "Chilean Flamingo");
     }
 
     @After

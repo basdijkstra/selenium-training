@@ -7,16 +7,17 @@ import org.openqa.selenium.interactions.Actions;
 public abstract class GoogleBasePage {
 
     private WebDriver driver;
-    private ExamplesSeleniumHelpers selenium = new ExamplesSeleniumHelpers();
+    private ExamplesSeleniumHelpers selenium;
 
     private By textfieldSearchQuery = By.name("q");
 
     public GoogleBasePage(WebDriver driver) {
         this.driver = driver;
+        selenium = new ExamplesSeleniumHelpers(driver);
     }
 
     public void doSearchFor(String searchQuery) {
-        selenium.sendKeys(driver, textfieldSearchQuery, searchQuery);
+        selenium.sendKeys(textfieldSearchQuery, searchQuery);
 
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();
     }

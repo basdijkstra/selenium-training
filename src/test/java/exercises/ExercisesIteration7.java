@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ExercisesIteration7 {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     @Before
     public void createBrowser() {
@@ -19,6 +19,8 @@ public class ExercisesIteration7 {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     @Test
@@ -35,12 +37,12 @@ public class ExercisesIteration7 {
          * in the Page Objects
          */
 
-        selenium.sendKeys(driver, By.id("amount"), "1000");
-        selenium.sendKeys(driver, By.id("downPayment"), "100");
-        selenium.select(driver, By.id("fromAccountId"), "54321");
-        selenium.click(driver, By.xpath("//input[@value='Apply Now']"));
+        selenium.sendKeys(By.id("amount"), "1000");
+        selenium.sendKeys(By.id("downPayment"), "100");
+        selenium.select(By.id("fromAccountId"), "54321");
+        selenium.click(By.xpath("//input[@value='Apply Now']"));
 
-        Assert.assertEquals("Denied", selenium.getElementText(driver, By.id("loanStatus")));
+        Assert.assertEquals("Denied", selenium.getElementText(By.id("loanStatus")));
     }
 
     @After

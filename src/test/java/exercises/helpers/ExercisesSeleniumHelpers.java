@@ -10,10 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExercisesSeleniumHelpers {
 
-    public ExercisesSeleniumHelpers() {
+    private WebDriver driver;
+
+    public ExercisesSeleniumHelpers(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public void click(WebDriver driver, By by) {
+    public void click(By by) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by));
@@ -24,7 +27,7 @@ public class ExercisesSeleniumHelpers {
         }
     }
 
-    public void sendKeys(WebDriver driver, By by, String textToType) {
+    public void sendKeys(By by, String textToType) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by));
@@ -35,7 +38,7 @@ public class ExercisesSeleniumHelpers {
         }
     }
 
-    public void select(WebDriver driver, By by, String valueToSelect) {
+    public void select(By by, String valueToSelect) {
 
         /***
          * Implement this helper method so that it first waits for the select element to be clickable
@@ -44,7 +47,7 @@ public class ExercisesSeleniumHelpers {
          */
     }
 
-    public boolean isDisplayed(WebDriver driver, By by) {
+    public boolean isDisplayed(By by) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -55,7 +58,7 @@ public class ExercisesSeleniumHelpers {
         }
     }
 
-    public String getElementText(WebDriver driver, By by) {
+    public String getElementText(By by) {
 
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));

@@ -1,6 +1,5 @@
 package answers;
 
-import answers.helpers.AnswersSeleniumHelpers;
 import answers.pages.*;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AnswersIteration7 {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
 
     @Before
     public void createBrowser() {

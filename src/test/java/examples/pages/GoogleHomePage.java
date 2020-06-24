@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 public class GoogleHomePage {
 
     private WebDriver driver;
-    private ExamplesSeleniumHelpers selenium = new ExamplesSeleniumHelpers();
+    private ExamplesSeleniumHelpers selenium;
 
     private By textfieldSearchQuery = By.name("q");
     private By buttonDoSearch = By.name("btnK");
 
     public GoogleHomePage(WebDriver driver) {
         this.driver = driver;
+        selenium = new ExamplesSeleniumHelpers(driver);
     }
 
     public GoogleHomePage load() {
@@ -22,12 +23,12 @@ public class GoogleHomePage {
     }
 
     public GoogleHomePage enterSearchTerm(String searchQuery) {
-        selenium.sendKeys(driver, textfieldSearchQuery, searchQuery);
+        selenium.sendKeys(textfieldSearchQuery, searchQuery);
         return this;
     }
 
     public void clickSearchButton() {
-        selenium.click(driver, buttonDoSearch);
+        selenium.click(buttonDoSearch);
     }
 
     public void loadAndSearchFor(String searchQuery) {

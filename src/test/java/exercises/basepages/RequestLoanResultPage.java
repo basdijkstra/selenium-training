@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 public class RequestLoanResultPage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     private By textfieldApplicationResult = By.id("loanStatus");
 
@@ -20,9 +20,10 @@ public class RequestLoanResultPage {
          * Pass the WebDriver object to the constructor of the BasePage here
          */
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     public String getLoanApplicationResult() {
-        return selenium.getElementText(driver, textfieldApplicationResult);
+        return selenium.getElementText(textfieldApplicationResult);
     }
 }

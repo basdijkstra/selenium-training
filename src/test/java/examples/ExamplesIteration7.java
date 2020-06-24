@@ -1,6 +1,5 @@
 package examples;
 
-import examples.helpers.ExamplesSeleniumHelpers;
 import examples.pages.*;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ExamplesIteration7 {
 
     private WebDriver driver;
-    private ExamplesSeleniumHelpers helpers = new ExamplesSeleniumHelpers();
 
     @Before
     public void createBrowser() {

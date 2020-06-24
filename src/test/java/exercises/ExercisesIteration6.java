@@ -1,10 +1,7 @@
 package exercises;
 
 import exercises.helpers.ExercisesSeleniumHelpers;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 public class ExercisesIteration6 {
 
     private WebDriver driver;
-    private ExercisesSeleniumHelpers selenium = new ExercisesSeleniumHelpers();
+    private ExercisesSeleniumHelpers selenium;
 
     @Before
     public void createBrowser() {
@@ -22,6 +19,8 @@ public class ExercisesIteration6 {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        selenium = new ExercisesSeleniumHelpers(driver);
     }
 
     @Test
@@ -29,9 +28,9 @@ public class ExercisesIteration6 {
 
         driver.get("http://parabank.parasoft.com");
 
-        selenium.sendKeys(driver, By.name("username"), "john");
-        selenium.sendKeys(driver, By.name("password"), "demo");
-        selenium.click(driver, By.xpath("//input[@value='Log In']"));
+        selenium.sendKeys(By.name("username"), "john");
+        selenium.sendKeys(By.name("password"), "demo");
+        selenium.click(By.xpath("//input[@value='Log In']"));
 
 
         /***

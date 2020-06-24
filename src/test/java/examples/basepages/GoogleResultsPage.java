@@ -7,16 +7,17 @@ import org.openqa.selenium.WebDriver;
 public class GoogleResultsPage extends GoogleBasePage {
 
     private WebDriver driver;
-    private ExamplesSeleniumHelpers selenium = new ExamplesSeleniumHelpers();
+    private ExamplesSeleniumHelpers selenium;
 
     private By textfieldResultStats = By.id("resultStats");
 
     public GoogleResultsPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
+        selenium = new ExamplesSeleniumHelpers(driver);
     }
 
     public boolean resultStatisticsAreDisplayed(){
-        return selenium.isDisplayed(driver, textfieldResultStats);
+        return selenium.isDisplayed(textfieldResultStats);
     }
 }

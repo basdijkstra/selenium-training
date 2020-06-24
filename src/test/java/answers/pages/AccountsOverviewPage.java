@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 public class AccountsOverviewPage {
 
     private WebDriver driver;
-    private AnswersSeleniumHelpers selenium = new AnswersSeleniumHelpers();
+    private AnswersSeleniumHelpers selenium;
 
     public AccountsOverviewPage(WebDriver driver) {
         this.driver = driver;
+        selenium = new AnswersSeleniumHelpers(driver);
     }
 
     public void selectMenuItem(String menuItem) {
-        selenium.click(driver, By.linkText(menuItem));
+        selenium.click(By.linkText(menuItem));
     }
 }

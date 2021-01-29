@@ -4,7 +4,7 @@ import answers.helpers.AnswersSeleniumHelpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OpenNewAccountResultPage {
+public class OpenNewAccountResultPage extends BasePage {
 
     private WebDriver driver;
     private AnswersSeleniumHelpers selenium;
@@ -12,11 +12,12 @@ public class OpenNewAccountResultPage {
     private By linkNewAccountId = By.id("newAccountId");
 
     public OpenNewAccountResultPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         selenium = new AnswersSeleniumHelpers(driver);
     }
 
-    public boolean newAccountIdIsVisible() {
-        return selenium.isDisplayed(linkNewAccountId);
+    public String getNewAccountId() {
+        return selenium.getElementText(linkNewAccountId);
     }
 }
